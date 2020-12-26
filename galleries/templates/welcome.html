@@ -1,0 +1,89 @@
+{%extends 'all-photo/base.html'%}
+
+{% block content %}
+<body>
+
+    <div class="container-fluid" id="container">
+      <h1 style="text-align: center;color: black;font-family: 'Helvetica Neue', sans-serif;"> PHOTO GALLERY </h1>
+      <p style="text-align: center; font-family: 'Helvetica Neue', sans-serif;"> Gallery is a place were to store all you photos. depends on which location there taken in .Image is an art, you will find all kind of pictures  </p>
+
+        <!--display photos -->
+       <div  class="row"  >
+
+        {% for photo_item in images %}
+
+        <div class="p-1" id="image">
+            <div class="zoom">
+                <div class="overlay">
+                    <div class="col-md-2 ">
+                        <div class="well">
+
+            <img src="{{photo_item.image.url}}" style="width: 500px" class="image" alt="some images" data-toggle="modal" data-target="#{{photo_item.id}}" class="img-responsive" style="width: 200px;">
+              </div>
+        </div>
+            </div>
+          </div>
+
+        </div>
+          
+            {% endfor %}
+          </div>
+            {% for photo_item in images %}
+      <div class="modal fade" id="{{photo_item.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">{{photo_item.title}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="{{photo_item.image.url}}" id="{{photo_item.id}}" class="img-fluid"  data-target="" class="img-responsive" style="width: 600px;max-width: 100%;">
+
+
+              <p>{{photo_item.description}}</p><label for="location">Location: {{photo_item.location}}</label>
+            </div>
+            <div class="modal-footer">
+                        <input class="form-control" type="text" value="http:127.0.0.1.8000{{photo_item.image.url}}" id="link">
+                        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="myFunction()">copyLink</button>
+
+              <!-- <a type="button" class="btn btn-success" data-dismiss="modal" onclick="copyLink()">copyLink</a> -->
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+<style>
+  .modal-content{
+    margin: auto;
+    display: block;
+    width:80%;
+    max-width: 700px;
+  }
+    .image{
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),0 1px 2px rgba(0, 0, 0, 0.24);
+        cursor:pointer;
+        border-radius: 10px;
+    .image:hover{
+        box-shadow: 0 1px 328px rgba(0, 0, 0, 0.25),0 1px 2px rgba(0, 0, 0, 0.22);
+        opacity: 0.7;
+        border-radius: 10px;
+        overflow: hidden;
+        transform:translate(-7px);
+
+    }
+</style>
+<script>
+    function myFunction(){
+        var copyText=document.getElementById("link");
+        copyText.select();
+        copyText.setSelectionRange(0, 999999)
+        document.execCommand("copy");
+    }
+</script>
+{% endfor %}
+{% endblock %}
