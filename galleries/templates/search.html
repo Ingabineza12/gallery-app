@@ -1,0 +1,27 @@
+{%extends 'all-photo/base.html'%}
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if photos %}
+      <h2>Found {{ photos|length }} of searched term {{message}}</h2>
+    {% else %}
+      <h2> Found 0 for the search term {{message}}</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row">
+
+  {% if photos %}
+    {% for photo in photos %}
+      <div class="col-sm-6 col-md-3">
+
+          <img src="{{photo.image.url}}" alt="image" style="max-width: 250px;">
+          <h1>{{photo.title}}</h1>
+        </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
