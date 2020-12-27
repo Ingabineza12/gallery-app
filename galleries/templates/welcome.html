@@ -10,11 +10,11 @@
 
 
         <!--display photos -->
-       <div  class="row"  >
+       <div  class="row">
 
         {% for photo_item in images %}
 
-        <div class="p-1" id="image">
+        <div class="p-1" id="image" >
             <div class="zoom">
                 <div class="overlay">
                     <div class="col-md-4">
@@ -41,7 +41,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <img src="{{photo_item.image.url}}" id="{{photo_item.id}}" class="img-fluid"  data-target="" class="img-responsive" style="width: 600px;max-width: 100%;">
+              <img src="{{photo_item.image.url}}" id="{{photo_item.id}}" class="img-fluid"  data-target="" class="img-responsive" style="width: 400px;">
 
 
               <p>{{photo_item.description}}</p><label for="location">Location: {{photo_item.location}}</label>
@@ -65,7 +65,10 @@
         opacity: 0.7;
         border-radius: 10px;
         transform:translate(-6px);
-    }
+
+      }
+
+
 </style>
 <script>
     function myFunction(){
