@@ -17,11 +17,11 @@
         <div class="p-1" id="image">
             <div class="zoom">
                 <div class="overlay">
-                    <div class="col-md-6">
-                        <div class="well">
+                    <div class="col-md-4">
+                        <!-- <div class="well"> -->
 
-            <img src="{{photo_item.image.url}}" style="width: 500px" class="image" alt="some images" data-toggle="modal" data-target="#{{photo_item.id}}" class="img-responsive" style="width: 200px;">
-              </div>
+            <img src="{{photo_item.image.url}}" style="width: 400px" class="image" alt="some images" data-toggle="modal" data-target="#{{photo_item.id}}" class="img-responsive">
+              <!-- </div> -->
         </div>
             </div>
           </div>
@@ -62,8 +62,9 @@
 <style>
 
     .image:hover{
-        opacity: 0.9;
-        transform:translate(-2px);
+        opacity: 0.7;
+        border-radius: 10px;
+        transform:translate(-6px);
     }
 </style>
 <script>
