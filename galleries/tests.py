@@ -10,16 +10,16 @@ class ImageTestClass(TestCase):
     image test
     '''
     def setUp(self):
-        self.nature=Category(photo_category='Nature')
-        self.nature.save_category()
+        self.landscape=Category(photo_category='Landscape')
+        self.landscape.save_category()
 
-        self.james=Photographer(first_name='James',last_name="Anne")
-        self.james.save_photographer()
+        self.deborah=Photographer(first_name='Deborah',last_name="Ingabire M.")
+        self.deborah.save_photographer()
 
-        self.usa=Location(photo_location='USA')
-        self.usa.save_location()
+        self.africa=Location(photo_location='Africa')
+        self.africa.save_location()
 
-        self.image=Image(title='leaves',description='beautiful',photographer=self.james,location=self.usa,category=self.nature)
+        self.image=Image(title='hills',description='beautiful',photographer=self.deborah,location=self.africa,category=self.lanLandscape)
         self.image.save_image()
 
     def test_instance(self):
@@ -70,19 +70,19 @@ class LocationTestClass(TestCase):
 
     # Set up method
     def setUp(self):
-        self.kigali= Location(photo_location = 'Kigali')
+        self.rwanda= Location(photo_location = 'Rwanda')
 
     # Testing  instance
     def test_instance(self):
-        self.assertTrue(isinstance(self.kigali,Location))
+        self.assertTrue(isinstance(self.rwanda,Location))
     #Testing to update
     def test_update(self):
         '''
         test to update image
         '''
-        self.kigali.save_location()
-        img=self.kigali.get_location_id(self.kigali.id)
-        location=Location.objects.get(id=self.kigali.id)
+        self.rwanda.save_location()
+        img=self.rwanda.get_location_id(self.rwanda.id)
+        location=Location.objects.get(id=self.rwanda.id)
         self.assertTrue(img,location)
 
     #test delete
@@ -93,7 +93,7 @@ class LocationTestClass(TestCase):
 
     # Testing Save Method
     def test_save_method(self):
-        self.kigali.save_location()
+        self.rwanda.save_location()
         locations= Location.objects.all()
         self.assertTrue(len(locations) > 0)
 
@@ -101,19 +101,19 @@ class CategoryTestClass(TestCase):
 
     # Set up method
     def setUp(self):
-        self.nature= Category(photo_category = 'Nature')
+        self.landscape= Category(photo_category = 'Landscape')
 
     # Testing  instance
     def test_instance(self):
-        self.assertTrue(isinstance(self.nature,Category))
+        self.assertTrue(isinstance(self.landscape,Category))
     #Testing to update
     def test_update(self):
         '''
         test to update image
         '''
-        self.nature.save_category()
-        img=self.nature.get_category_id(self.nature.id)
-        category=Category.objects.get(id=self.nature.id)
+        self.landscape.save_category()
+        img=self.landscape.get_category_id(self.landscape.id)
+        category=Category.objects.get(id=self.landscape.id)
         self.assertTrue(img,category)
 
     #test delete
