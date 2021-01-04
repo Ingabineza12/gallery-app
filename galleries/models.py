@@ -70,9 +70,9 @@ class Image(models.Model):
     title=models.CharField(max_length=30)
     description=models.TextField(max_length=30)
     image=models.ImageField(upload_to='images_galleries/')
-    location=models.ForeignKey(Location)
-    category=models.ForeignKey(Category)
-    photographer=models.ForeignKey(Photographer)
+    location=models.ForeignKey(Location,on_delete=models.CASCADE)
+    category=models.ForeignKey(Category,on_delete=models.CASCADE)
+    photographer=models.ForeignKey(Photographer,on_delete=models.CASCADE)
     pub_date=models.DateTimeField(auto_now_add=True,null=True)
 
     class Meta:
