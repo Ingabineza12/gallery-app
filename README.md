@@ -1,4 +1,4 @@
-# gallery-app
+# Gallery-app
 
 This application will show the user on the dashboard all the Photos that the admin have to add images and the location. and the user will be able to see them on the dashboard.
 
@@ -13,16 +13,16 @@ the admin is the only one to add any image and user will view and search only.
 to start using this app you can first clone it on github and user visual code for writing codes
 
 ## Technology used
-Python3.6
-Django
-terminal
-ubuntu window
-html
-javascript
-css
-Postgres SQLALchemy
-Run
-Use Terminal to open the server and the brouser to run this application
+Python3.6 <br>
+Django <br>
+terminal <br>
+ubuntu window <br>
+html <br>
+javascript <br>
+css <br>
+Postgres SQLALchemy <br>
+Run <br>
+Use Terminal to open the server and the brouser to run this application <br>
 
 ## Behavior Driven Development (BDD)
 Create structure etc..
